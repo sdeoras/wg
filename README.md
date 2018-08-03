@@ -19,7 +19,7 @@ wg run -- sleep 1
 # wait for command completion
 wg wait
 
-# note that three sleep commands ran asynchronously
+# note that three sleep commands ran asynchronously and total wait time was only 1 second
 ```
 
 # server and a client
