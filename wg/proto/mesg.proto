@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package proto;
+
+service Exec {
+    rpc Run(RunRequest) returns (RunResponse) {};
+    rpc Wait(WaitRequest) returns (WaitResponse) {};
+}
+
+// RunRequest is a list of strings that will be sent to exec.Command as is
+message RunRequest {
+    repeated string commands = 2;
+}
+
+// RunResponse is a boolean indicating error and a string message
+message RunResponse {
+    bool error = 1;
+    string mesg = 2;
+}
+
+message WaitRequest {
+}
+
+message WaitResponse {
+    string mesg = 1;
+}
