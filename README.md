@@ -25,3 +25,6 @@ wg wait
 # server and a client
 `wg init` starts a server and `wg run` starts a client. It is, therefore, necessary to run `wg init`
 in background and to call `wg wait` to not only wait for command completion but also to kill the server.
+
+# limitations
+* server is not designed to run in multiple instances. `wg init` will fail if a server is already running.

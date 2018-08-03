@@ -16,7 +16,6 @@ package cmd
 
 import (
 	"context"
-	"fmt"
 	"net"
 	"time"
 
@@ -30,7 +29,7 @@ import (
 // initCmd represents the init command
 var initCmd = &cobra.Command{
 	Use:   "init",
-	Short: "initialize a new waitgroup",
+	Short: "initialize a new wait group",
 	Long:  "",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		//start grpc server on localhost
@@ -63,8 +62,7 @@ var initCmd = &cobra.Command{
 		select {
 		case <-globalCtx.Done():
 		case <-ctx.Done():
-			fmt.Println("existing in 1 second")
-			time.Sleep(time.Second)
+			time.Sleep(time.Millisecond * 250)
 		case err := <-errChan:
 			return err
 		}

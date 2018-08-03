@@ -2,7 +2,6 @@ package server
 
 import (
 	"context"
-	"fmt"
 	"os/exec"
 	"time"
 
@@ -34,10 +33,8 @@ func (s *Server) Run(ctx context.Context, request *proto.RunRequest) (*proto.Run
 
 	s.group.Go(s.ctx, func() error {
 		commands := request.Commands
-		fmt.Println(commands)
 		cmd := exec.Command(commands[0], commands[1:]...)
 		err := cmd.Run()
-		fmt.Printf("executed with error: %v\n", err)
 		return err
 	})
 

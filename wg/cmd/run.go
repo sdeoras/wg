@@ -27,7 +27,7 @@ import (
 // runCmd represents the run command
 var runCmd = &cobra.Command{
 	Use:   "run",
-	Short: "A brief description of your command",
+	Short: "run commands",
 	Long:  "",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		conn, err := grpc.Dial("localhost:7001", grpc.WithInsecure())

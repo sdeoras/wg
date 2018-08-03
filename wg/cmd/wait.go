@@ -16,7 +16,6 @@ package cmd
 
 import (
 	"context"
-	"fmt"
 
 	"github.com/sdeoras/wg/wg/proto"
 	"github.com/sirupsen/logrus"
@@ -38,9 +37,8 @@ var waitCmd = &cobra.Command{
 
 		client := proto.NewExecClient(conn)
 
-		resp, err := client.Wait(context.Background(), &proto.WaitRequest{})
+		_, err = client.Wait(context.Background(), &proto.WaitRequest{})
 
-		fmt.Println(resp)
 		return err
 	},
 }
